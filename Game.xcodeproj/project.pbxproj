@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		5E26D93B24EE471900BDBB43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E26D93A24EE471900BDBB43 /* AppDelegate.swift */; };
 		5E26D93D24EE471900BDBB43 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E26D93C24EE471900BDBB43 /* SceneDelegate.swift */; };
-		5E26D93F24EE471900BDBB43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E26D93E24EE471900BDBB43 /* ViewController.swift */; };
-		5E26D94224EE471900BDBB43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E26D94024EE471900BDBB43 /* Main.storyboard */; };
 		5E26D94424EE471A00BDBB43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E26D94324EE471A00BDBB43 /* Assets.xcassets */; };
 		5E26D94724EE471A00BDBB43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E26D94524EE471A00BDBB43 /* LaunchScreen.storyboard */; };
+		5E26D95424EE479400BDBB43 /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E26D95224EE479400BDBB43 /* GameListViewController.swift */; };
+		5E26D95524EE479400BDBB43 /* GameListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E26D95324EE479400BDBB43 /* GameListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5E26D93724EE471900BDBB43 /* Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E26D93A24EE471900BDBB43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E26D93C24EE471900BDBB43 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5E26D93E24EE471900BDBB43 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5E26D94124EE471900BDBB43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5E26D94324EE471A00BDBB43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E26D94624EE471A00BDBB43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E26D94824EE471A00BDBB43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E26D95224EE479400BDBB43 /* GameListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewController.swift; sourceTree = "<group>"; };
+		5E26D95324EE479400BDBB43 /* GameListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameListViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +56,45 @@
 		5E26D93924EE471900BDBB43 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				5E26D93A24EE471900BDBB43 /* AppDelegate.swift */,
-				5E26D93C24EE471900BDBB43 /* SceneDelegate.swift */,
-				5E26D93E24EE471900BDBB43 /* ViewController.swift */,
-				5E26D94024EE471900BDBB43 /* Main.storyboard */,
+				5E26D94E24EE474000BDBB43 /* Application */,
+				5E26D94F24EE474900BDBB43 /* Supporting Files */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		5E26D94E24EE474000BDBB43 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				5E26D95124EE478700BDBB43 /* Game */,
+				5E26D95024EE475C00BDBB43 /* Main */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		5E26D94F24EE474900BDBB43 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				5E26D94324EE471A00BDBB43 /* Assets.xcassets */,
 				5E26D94524EE471A00BDBB43 /* LaunchScreen.storyboard */,
 				5E26D94824EE471A00BDBB43 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5E26D95024EE475C00BDBB43 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				5E26D93A24EE471900BDBB43 /* AppDelegate.swift */,
+				5E26D93C24EE471900BDBB43 /* SceneDelegate.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		5E26D95124EE478700BDBB43 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				5E26D95224EE479400BDBB43 /* GameListViewController.swift */,
+				5E26D95324EE479400BDBB43 /* GameListViewController.xib */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -125,9 +157,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E26D95524EE479400BDBB43 /* GameListViewController.xib in Resources */,
 				5E26D94724EE471A00BDBB43 /* LaunchScreen.storyboard in Resources */,
 				5E26D94424EE471A00BDBB43 /* Assets.xcassets in Resources */,
-				5E26D94224EE471900BDBB43 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +170,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E26D93F24EE471900BDBB43 /* ViewController.swift in Sources */,
 				5E26D93B24EE471900BDBB43 /* AppDelegate.swift in Sources */,
+				5E26D95424EE479400BDBB43 /* GameListViewController.swift in Sources */,
 				5E26D93D24EE471900BDBB43 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +179,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5E26D94024EE471900BDBB43 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5E26D94124EE471900BDBB43 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5E26D94524EE471A00BDBB43 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -286,7 +310,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4PAC9XA99N;
-				INFOPLIST_FILE = Game/Info.plist;
+				INFOPLIST_FILE = "Game/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +328,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4PAC9XA99N;
-				INFOPLIST_FILE = Game/Info.plist;
+				INFOPLIST_FILE = "Game/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
