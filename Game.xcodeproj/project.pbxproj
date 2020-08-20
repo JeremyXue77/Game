@@ -13,6 +13,15 @@
 		5E26D94724EE471A00BDBB43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E26D94524EE471A00BDBB43 /* LaunchScreen.storyboard */; };
 		5E26D95424EE479400BDBB43 /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E26D95224EE479400BDBB43 /* GameListViewController.swift */; };
 		5E26D95524EE479400BDBB43 /* GameListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E26D95324EE479400BDBB43 /* GameListViewController.xib */; };
+		5E26D95824EE48B600BDBB43 /* GameListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E26D95724EE48B600BDBB43 /* GameListView.swift */; };
+		5E26D95C24EE4CCB00BDBB43 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E26D95B24EE4CCB00BDBB43 /* Coordinator.swift */; };
+		5E26D95E24EE4D2A00BDBB43 /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E26D95D24EE4D2A00BDBB43 /* GameCoordinator.swift */; };
+		5E26D96124EE4DDE00BDBB43 /* FlipCardGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E26D95F24EE4DDE00BDBB43 /* FlipCardGameViewController.swift */; };
+		5E26D96224EE4DDE00BDBB43 /* FlipCardGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E26D96024EE4DDE00BDBB43 /* FlipCardGameViewController.xib */; };
+		5E26D96524EE4DF700BDBB43 /* NumberReactionGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E26D96324EE4DF700BDBB43 /* NumberReactionGameViewController.swift */; };
+		5E26D96624EE4DF700BDBB43 /* NumberReactionGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E26D96424EE4DF700BDBB43 /* NumberReactionGameViewController.xib */; };
+		5E26D96924EE4E0800BDBB43 /* PerfectPathGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E26D96724EE4E0800BDBB43 /* PerfectPathGameViewController.swift */; };
+		5E26D96A24EE4E0800BDBB43 /* PerfectPathGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E26D96824EE4E0800BDBB43 /* PerfectPathGameViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +33,15 @@
 		5E26D94824EE471A00BDBB43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E26D95224EE479400BDBB43 /* GameListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewController.swift; sourceTree = "<group>"; };
 		5E26D95324EE479400BDBB43 /* GameListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameListViewController.xib; sourceTree = "<group>"; };
+		5E26D95724EE48B600BDBB43 /* GameListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListView.swift; sourceTree = "<group>"; };
+		5E26D95B24EE4CCB00BDBB43 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		5E26D95D24EE4D2A00BDBB43 /* GameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
+		5E26D95F24EE4DDE00BDBB43 /* FlipCardGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipCardGameViewController.swift; sourceTree = "<group>"; };
+		5E26D96024EE4DDE00BDBB43 /* FlipCardGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlipCardGameViewController.xib; sourceTree = "<group>"; };
+		5E26D96324EE4DF700BDBB43 /* NumberReactionGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberReactionGameViewController.swift; sourceTree = "<group>"; };
+		5E26D96424EE4DF700BDBB43 /* NumberReactionGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumberReactionGameViewController.xib; sourceTree = "<group>"; };
+		5E26D96724EE4E0800BDBB43 /* PerfectPathGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfectPathGameViewController.swift; sourceTree = "<group>"; };
+		5E26D96824EE4E0800BDBB43 /* PerfectPathGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PerfectPathGameViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +83,7 @@
 		5E26D94E24EE474000BDBB43 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				5E26D95A24EE4CBA00BDBB43 /* Helper */,
 				5E26D95124EE478700BDBB43 /* Game */,
 				5E26D95024EE475C00BDBB43 /* Main */,
 			);
@@ -93,10 +112,34 @@
 		5E26D95124EE478700BDBB43 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				5E26D95224EE479400BDBB43 /* GameListViewController.swift */,
-				5E26D95324EE479400BDBB43 /* GameListViewController.xib */,
+				5E26D95D24EE4D2A00BDBB43 /* GameCoordinator.swift */,
+				5E26D95624EE489100BDBB43 /* View */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		5E26D95624EE489100BDBB43 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5E26D95224EE479400BDBB43 /* GameListViewController.swift */,
+				5E26D95324EE479400BDBB43 /* GameListViewController.xib */,
+				5E26D95724EE48B600BDBB43 /* GameListView.swift */,
+				5E26D95F24EE4DDE00BDBB43 /* FlipCardGameViewController.swift */,
+				5E26D96024EE4DDE00BDBB43 /* FlipCardGameViewController.xib */,
+				5E26D96324EE4DF700BDBB43 /* NumberReactionGameViewController.swift */,
+				5E26D96424EE4DF700BDBB43 /* NumberReactionGameViewController.xib */,
+				5E26D96724EE4E0800BDBB43 /* PerfectPathGameViewController.swift */,
+				5E26D96824EE4E0800BDBB43 /* PerfectPathGameViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5E26D95A24EE4CBA00BDBB43 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				5E26D95B24EE4CCB00BDBB43 /* Coordinator.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,8 +201,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E26D95524EE479400BDBB43 /* GameListViewController.xib in Resources */,
+				5E26D96224EE4DDE00BDBB43 /* FlipCardGameViewController.xib in Resources */,
 				5E26D94724EE471A00BDBB43 /* LaunchScreen.storyboard in Resources */,
+				5E26D96A24EE4E0800BDBB43 /* PerfectPathGameViewController.xib in Resources */,
 				5E26D94424EE471A00BDBB43 /* Assets.xcassets in Resources */,
+				5E26D96624EE4DF700BDBB43 /* NumberReactionGameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,8 +216,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E26D96524EE4DF700BDBB43 /* NumberReactionGameViewController.swift in Sources */,
+				5E26D95E24EE4D2A00BDBB43 /* GameCoordinator.swift in Sources */,
 				5E26D93B24EE471900BDBB43 /* AppDelegate.swift in Sources */,
+				5E26D96924EE4E0800BDBB43 /* PerfectPathGameViewController.swift in Sources */,
 				5E26D95424EE479400BDBB43 /* GameListViewController.swift in Sources */,
+				5E26D95C24EE4CCB00BDBB43 /* Coordinator.swift in Sources */,
+				5E26D95824EE48B600BDBB43 /* GameListView.swift in Sources */,
+				5E26D96124EE4DDE00BDBB43 /* FlipCardGameViewController.swift in Sources */,
 				5E26D93D24EE471900BDBB43 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
