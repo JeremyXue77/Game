@@ -10,14 +10,40 @@ import UIKit
 import Reusable
 
 class CardCollectionViewCell: UICollectionViewCell, NibReusable {
-
-    @IBOutlet weak var textLabel: UILabel!
     
+    // MARK: IBOutlets
+    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var cardBackView: UIView!
+    
+    // MARK: Awake from nib
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.cornerRadius = 10
-        self.layer.borderWidth = 2.5
-        self.layer.borderColor = UIColor.orange.cgColor
-        self.clipsToBounds = true
+        cardBackView.layer.cornerRadius = 10
+        cardBackView.clipsToBounds = true
+        textLabel.layer.cornerRadius = 10
+        textLabel.clipsToBounds = true
+        textLabel.layer.borderWidth = 2.5
+        textLabel.layer.borderColor = UIColor.orange.cgColor
+        textLabel.backgroundColor = .white
+    }
+    
+    // MARK: Methods
+    func update(_ card: Card) {
+        let fromView = card.isFaceUp ? cardBackView : textLabel
+        let toView = !card.isFaceUp ? cardBackView : textLabel
+        let duration: TimeInterval = 0.3
+        let options: UIView.AnimationOptions = [.transitionFlipFromLeft, .showHideTransitionViews, .curveEaseOut]
+        isUserInteractionEnabled = false
+        UIView.transition(from: fromView!,
+                          to: toView!,
+                          duration: duration,
+                          options: options) { [weak self](finish) in
+                            if finish {
+                                self?.isUserInteractionEnabled = true
+                                fromView?.isHidden = true
+                                toView?.isHidden = false
+                            }
+        }
+        textLabel.text = card.displayEmoji
     }
 }

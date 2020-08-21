@@ -11,11 +11,9 @@ import Foundation
 struct FlipCardGame {
     
     private(set) var cards: [Card]
-    private var selectedIndices: [Int] = []
-    private var handCards: [Card] {
-        cards.filter { ($0.isFaceUp && !$0.isMatched) }
-    }
-    private var isPlaying: Bool {
+    var handCardIndices: [Int] = []
+    
+    var isPlaying: Bool {
         (cards.map { $0.isMatched }.contains(false))
     }
     
@@ -35,32 +33,30 @@ struct FlipCardGame {
 extension FlipCardGame {
     
     mutating func flip(at index: Int) {
-        guard isPlaying && !cards[index].isMatched else {
+        guard isPlaying && !cards[index].isMatched && handCardIndices.count < 2 else {
             return
         }
-        
-        if handCards.count == 2 {
-            if handCards.first == handCards.last {
-                for (index, card) in cards.enumerated() {
-                    if card == handCards.first {
-                        cards[index].isMatched = true
-                    }
-                }
-            } else {
-                flipUnmatchCardsToBack()
-            }
-        }
-        
-        if cards.map({$0.isMatched}).contains(false) {
-            cards[index].isFaceUp.toggle()
+        cards[index].isFaceUp.toggle()
+        if cards[index].isFaceUp {
+            handCardIndices.append(index)
+        } else {
+            handCardIndices.removeAll()
         }
     }
     
-    private mutating func flipUnmatchCardsToBack() {
-        for (index, card) in cards.enumerated() {
-            if !card.isMatched {
-                cards[index].isFaceUp = false
-            }
+    func checkHandCardIsMatched() -> Bool {
+        var selecetedCards: [Card] = []
+        for index in handCardIndices {
+            let card = cards[index]
+            selecetedCards.append(card)
+        }
+        return (selecetedCards.first == selecetedCards.last)
+    }
+    
+    mutating func setHandCards(indices: [Int], isMatched: Bool) {
+        for index in indices {
+            cards[index].isFaceUp = isMatched
+            cards[index].isMatched = isMatched
         }
     }
     

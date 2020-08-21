@@ -25,13 +25,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMm-KF-9rJ">
+                                <rect key="frame" x="0.0" y="0.0" width="167" height="141"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="pMm-KF-9rJ" firstAttribute="leading" secondItem="kFd-Xe-O3i" secondAttribute="leading" id="Dz1-QO-etp"/>
                             <constraint firstItem="xmU-fn-I8Q" firstAttribute="top" secondItem="kFd-Xe-O3i" secondAttribute="top" id="OBx-B2-a79"/>
+                            <constraint firstItem="pMm-KF-9rJ" firstAttribute="top" secondItem="kFd-Xe-O3i" secondAttribute="top" id="OO4-EO-Xqh"/>
                             <constraint firstAttribute="bottom" secondItem="xmU-fn-I8Q" secondAttribute="bottom" id="kX2-rz-2K8"/>
                             <constraint firstItem="xmU-fn-I8Q" firstAttribute="leading" secondItem="kFd-Xe-O3i" secondAttribute="leading" id="oiD-2R-8Aw"/>
+                            <constraint firstAttribute="trailing" secondItem="pMm-KF-9rJ" secondAttribute="trailing" id="pXW-s5-BTy"/>
                             <constraint firstAttribute="trailing" secondItem="xmU-fn-I8Q" secondAttribute="trailing" id="rkO-hf-IIk"/>
+                            <constraint firstAttribute="bottom" secondItem="pMm-KF-9rJ" secondAttribute="bottom" id="rzQ-IW-U0W"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -45,6 +53,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="167" height="141"/>
             <connections>
+                <outlet property="cardBackView" destination="pMm-KF-9rJ" id="TMD-oL-FtG"/>
                 <outlet property="textLabel" destination="xmU-fn-I8Q" id="dus-PF-VxQ"/>
             </connections>
             <point key="canvasLocation" x="52.898550724637687" y="183.14732142857142"/>

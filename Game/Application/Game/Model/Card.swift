@@ -12,4 +12,8 @@ struct Card: Equatable {
     let displayEmoji: String
     var isMatched: Bool = true
     var isFaceUp: Bool = false
+    
+    static func ==(lhs: Card, rhs: Card) -> Bool {
+        lhs.displayEmoji == rhs.displayEmoji && lhs.isFaceUp == rhs.isFaceUp
+    }
 }

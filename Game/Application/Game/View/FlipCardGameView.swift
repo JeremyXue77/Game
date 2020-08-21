@@ -60,8 +60,25 @@ class FlipCardGameView: UIView {
 extension FlipCardGameView {
     
     func reloadCardCollectionView(with cards: [Card]) {
-        self.cards = cards
-        cardCollectionView.reloadData()
+        if self.cards.isEmpty {
+            self.cards = cards
+            cardCollectionView.reloadData()
+        } else {
+            var indexPaths = [IndexPath]()
+            for (index, card) in cards.enumerated() {
+                let originCard = self.cards[index]
+                if originCard != card {
+                    indexPaths.append(IndexPath(item: index, section: 0))
+                    self.cards[index] = card
+                }
+            }
+            for indexPath in indexPaths {
+                if let cell = cardCollectionView.cellForItem(at: indexPath) as? CardCollectionViewCell {
+                    let card = cards[indexPath.row]
+                    cell.update(card)
+                }
+            }
+        }
     }
 }
 
@@ -75,13 +92,7 @@ extension FlipCardGameView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: CardCollectionViewCell.self)
         let card = cards[indexPath.row]
-        if card.isFaceUp {
-            cell.textLabel.text = card.displayEmoji
-            cell.textLabel.backgroundColor = .white
-        } else {
-            cell.textLabel.text = nil
-            cell.textLabel.backgroundColor = .orange
-        }
+        cell.update(card)
         return cell
     }
 }
