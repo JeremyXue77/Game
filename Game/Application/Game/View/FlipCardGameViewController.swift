@@ -9,69 +9,50 @@
 import UIKit
 
 class FlipCardGameViewController: UIViewController {
-
+    
     // MARK: Properties
     private var flipCardGameView: FlipCardGameView? {
         view as? FlipCardGameView
     }
     weak var coordinator: GameCoordinaotr?
-    private var repeatTiemr: RepeatTimer = RepeatTimer()
-    private var flipCardGame = FlipCardGame()
-
+    private var viewModel: FlipCardGameViewModel?
+    
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupFlipCardGameView()
-        setupFlipCardGame()
+        setupViewModel()
     }
     
     // MARK: Setting Methods
     private func setupFlipCardGameView() {
         flipCardGameView?.delegate = self
-        flipCardGameView?.updateFlipCardGame(flipCardGame)
     }
     
-    private func setupFlipCardGame() {
-        flipCardGame.stop()
-    }
-    
-    private func startCountDown() {
-        var second = 6
-        repeatTiemr.start(timeInterval: 1) { [weak self](timer) in
-            guard let self = self else {
-                timer.stop()
-                return
-            }
-            second -= 1
-            if second == 0 {
-                timer.stop()
-                self.flipCardGame.start()
-                self.flipCardGameView?.reloadData()
-                self.flipCardGameView?.countDownLabel.text = ""
-            } else {
-                self.flipCardGameView?.countDownLabel.text = "\(second)"
-            }
-        }
+    private func setupViewModel() {
+        let game = FlipCardGame()
+        viewModel = FlipCardGameViewModel(game: game)
+        viewModel?.cards.bind({ [weak flipCardGameView](cards) in
+            flipCardGameView?.update(with: cards)
+        })
+        viewModel?.remainingSeconds.bind({ [weak flipCardGameView](text) in
+            flipCardGameView?.countDownLabel.text = text
+        })
     }
 }
 
 // MARK: - FlipCardGameViewController + FlipCardGameViewDelegate
 extension FlipCardGameViewController: FlipCardGameViewDelegate {
-        
+    
     func flipCardGameView(_ flipCardGameView: FlipCardGameView, didSelectItemAt index: Int) {
-        flipCardGame.flip(at: index)
-        flipCardGameView.reloadData()
+        viewModel?.flipCard(at: index)
     }
     
     func flipCardGameViewDidReset(_ flipCardGameView: FlipCardGameView) {
-        repeatTiemr.stop()
-        flipCardGame.stop()
-        flipCardGameView.reloadData()
+        viewModel?.stopGame()
     }
     
     func flipCardGameViewDidStart(_ flipCardGameView: FlipCardGameView) {
-        flipCardGame.showAllCards()
-        flipCardGameView.reloadData()
-        startCountDown()
+        viewModel?.startGame()
     }
 }

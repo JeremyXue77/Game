@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FlipCardGame {
+struct FlipCardGame {
     
     private(set) var cards: [Card]
     private var selectedIndices: [Int] = []
@@ -34,7 +34,7 @@ class FlipCardGame {
 // MARK: - Methods
 extension FlipCardGame {
     
-    func flip(at index: Int) {
+    mutating func flip(at index: Int) {
         guard isPlaying && !cards[index].isMatched else {
             return
         }
@@ -56,7 +56,7 @@ extension FlipCardGame {
         }
     }
     
-    private func flipUnmatchCardsToBack() {
+    private mutating func flipUnmatchCardsToBack() {
         for (index, card) in cards.enumerated() {
             if !card.isMatched {
                 cards[index].isFaceUp = false
@@ -64,21 +64,21 @@ extension FlipCardGame {
         }
     }
     
-    func showAllCards() {
+    mutating func showAllCards() {
         for index in cards.indices {
             cards[index].isFaceUp = true
             cards[index].isMatched = true
         }
     }
     
-    func start() {
+    mutating func start() {
         for index in cards.indices {
             cards[index].isFaceUp = false
             cards[index].isMatched = false
         }
     }
     
-    func stop() {
+    mutating func stop() {
         for index in cards.indices {
             cards[index].isFaceUp = false
             cards[index].isMatched = true

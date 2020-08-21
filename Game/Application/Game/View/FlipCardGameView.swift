@@ -18,14 +18,7 @@ protocol FlipCardGameViewDelegate: AnyObject {
 class FlipCardGameView: UIView {
     
     // MARK: Properties
-    private var flipCardsGame: FlipCardGame? {
-        didSet {
-            cardCollectionView.reloadData()
-        }
-    }
-    private var cards: [Card] {
-        flipCardsGame?.cards ?? []
-    }
+    private var cards: [Card] = []
     weak var delegate: FlipCardGameViewDelegate?
     private let columns: Int = 4
     private let rows: Int = 3
@@ -66,11 +59,8 @@ class FlipCardGameView: UIView {
 // MARK: - Methods
 extension FlipCardGameView {
     
-    func updateFlipCardGame(_ game: FlipCardGame) {
-        flipCardsGame = game
-    }
-    
-    func reloadData() {
+    func update(with cards: [Card]) {
+        self.cards = cards
         cardCollectionView.reloadData()
     }
 }

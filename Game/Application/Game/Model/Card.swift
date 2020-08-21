@@ -10,6 +10,6 @@ import Foundation
 
 struct Card: Equatable {
     let displayEmoji: String
-    var isMatched: Bool = false
+    var isMatched: Bool = true
     var isFaceUp: Bool = false
 }
