@@ -40,9 +40,8 @@ extension FlipCardGameViewModel {
         var second = 5
         game.showAllCards()
         repeatTiemr.start(timeInterval: 1) { [unowned self](timer) in
-            print(second)
-            self.remainingSeconds.value = "\(second)"
-            if second >= 0 {
+            self.remainingSeconds.value = "\(second)s"
+            if second > 0 {
                 second -= 1
             } else {
                 timer.stop()

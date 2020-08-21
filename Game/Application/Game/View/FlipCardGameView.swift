@@ -59,7 +59,7 @@ class FlipCardGameView: UIView {
 // MARK: - Methods
 extension FlipCardGameView {
     
-    func update(with cards: [Card]) {
+    func reloadCardCollectionView(with cards: [Card]) {
         self.cards = cards
         cardCollectionView.reloadData()
     }

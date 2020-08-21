@@ -33,7 +33,7 @@ class FlipCardGameViewController: UIViewController {
         let game = FlipCardGame()
         viewModel = FlipCardGameViewModel(game: game)
         viewModel?.cards.bind({ [weak flipCardGameView](cards) in
-            flipCardGameView?.update(with: cards)
+            flipCardGameView?.reloadCardCollectionView(with: cards)
         })
         viewModel?.remainingSeconds.bind({ [weak flipCardGameView](text) in
             flipCardGameView?.countDownLabel.text = text
