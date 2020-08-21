@@ -10,9 +10,14 @@ import Foundation
 
 class FlipCardGame {
     
-    private(set) var isStarting = false
     private(set) var cards: [Card]
     private var selectedIndices: [Int] = []
+    private var handCards: [Card] {
+        cards.filter { ($0.isFaceUp && !$0.isMatched) }
+    }
+    private var isPlaying: Bool {
+        (cards.map { $0.isMatched }.contains(false))
+    }
     
     init() {
         let emojis = ["🎮", "🤖", "👨🏻‍💻", "⚠️", "🎉", "😎"]
@@ -30,13 +35,14 @@ class FlipCardGame {
 extension FlipCardGame {
     
     func flip(at index: Int) {
-        if !isStarting { return }
-        if cards[index].isMatched { return }
-        let frontCards = cards.filter({ $0.isFaceUp && !$0.isMatched })
-        if frontCards.count == 2 {
-            if frontCards.first == frontCards.last {
+        guard isPlaying && !cards[index].isMatched else {
+            return
+        }
+        
+        if handCards.count == 2 {
+            if handCards.first == handCards.last {
                 for (index, card) in cards.enumerated() {
-                    if card == frontCards.first {
+                    if card == handCards.first {
                         cards[index].isMatched = true
                     }
                 }
@@ -44,10 +50,13 @@ extension FlipCardGame {
                 flipUnmatchCardsToBack()
             }
         }
-        cards[index].isFaceUp.toggle()
+        
+        if cards.map({$0.isMatched}).contains(false) {
+            cards[index].isFaceUp.toggle()
+        }
     }
     
-    func flipUnmatchCardsToBack() {
+    private func flipUnmatchCardsToBack() {
         for (index, card) in cards.enumerated() {
             if !card.isMatched {
                 cards[index].isFaceUp = false
@@ -56,7 +65,6 @@ extension FlipCardGame {
     }
     
     func showAllCards() {
-        isStarting = false
         for index in cards.indices {
             cards[index].isFaceUp = true
             cards[index].isMatched = true
@@ -64,7 +72,6 @@ extension FlipCardGame {
     }
     
     func start() {
-        isStarting = true
         for index in cards.indices {
             cards[index].isFaceUp = false
             cards[index].isMatched = false
@@ -72,10 +79,9 @@ extension FlipCardGame {
     }
     
     func stop() {
-        isStarting = true
         for index in cards.indices {
             cards[index].isFaceUp = false
-            cards[index].isMatched = false
+            cards[index].isMatched = true
         }
         cards.shuffle()
     }

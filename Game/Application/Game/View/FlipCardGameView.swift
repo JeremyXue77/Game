@@ -34,14 +34,16 @@ class FlipCardGameView: UIView {
     
     // MARK: IBOutlets
     @IBOutlet weak var cardCollectionView: UICollectionView!
+    @IBOutlet weak var countDownLabel: UILabel!
+    @IBOutlet weak var startAndResetButton: UIButton!
     
     // MARK: IBActions
     @IBAction func touchOnResetButton(_ sender: UIButton) {
         if isStarting {
-            sender.setTitle("START", for: .normal)
+            startAndResetButton.setTitle("START", for: .normal)
             delegate?.flipCardGameViewDidReset(self)
         } else {
-            sender.setTitle("STOP", for: .normal)
+            startAndResetButton.setTitle("STOP", for: .normal)
             delegate?.flipCardGameViewDidStart(self)
         }
         isStarting.toggle()

@@ -22,6 +22,7 @@ class FlipCardGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupFlipCardGameView()
+        setupFlipCardGame()
     }
     
     // MARK: Setting Methods
@@ -30,15 +31,25 @@ class FlipCardGameViewController: UIViewController {
         flipCardGameView?.updateFlipCardGame(flipCardGame)
     }
     
+    private func setupFlipCardGame() {
+        flipCardGame.stop()
+    }
+    
     private func startCountDown() {
         var second = 6
         repeatTiemr.start(timeInterval: 1) { [weak self](timer) in
+            guard let self = self else {
+                timer.stop()
+                return
+            }
             second -= 1
-            print(second)
             if second == 0 {
                 timer.stop()
-                self?.flipCardGame.start()
-                self?.flipCardGameView?.reloadData()
+                self.flipCardGame.start()
+                self.flipCardGameView?.reloadData()
+                self.flipCardGameView?.countDownLabel.text = ""
+            } else {
+                self.flipCardGameView?.countDownLabel.text = "\(second)"
             }
         }
     }

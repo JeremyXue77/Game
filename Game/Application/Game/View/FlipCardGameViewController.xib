@@ -33,11 +33,17 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2l-OY-3wW">
                             <rect key="frame" x="0.0" y="519.5" width="414" height="298.5"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NTo-iI-f8b">
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NTo-iI-f8b">
                                     <rect key="frame" x="16" y="8" width="382" height="282.5"/>
                                     <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efj-v1-bSW">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="137"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHc-0J-o8C">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="282.5"/>
+                                            <rect key="frame" x="0.0" y="145" width="382" height="137.5"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                             <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" title="START"/>
@@ -70,6 +76,8 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <connections>
                 <outlet property="cardCollectionView" destination="wir-CL-9FO" id="FzC-vF-iVX"/>
+                <outlet property="countDownLabel" destination="efj-v1-bSW" id="64x-6p-q2I"/>
+                <outlet property="startAndResetButton" destination="aHc-0J-o8C" id="g2N-Ow-9hj"/>
             </connections>
             <point key="canvasLocation" x="139" y="153"/>
         </view>
