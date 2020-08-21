@@ -38,7 +38,9 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHc-0J-o8C">
                                             <rect key="frame" x="0.0" y="0.0" width="382" height="282.5"/>
-                                            <state key="normal" title="RESET"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" title="START"/>
                                             <connections>
                                                 <action selector="touchOnResetButton:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="Rxv-qZ-0u0"/>
                                             </connections>

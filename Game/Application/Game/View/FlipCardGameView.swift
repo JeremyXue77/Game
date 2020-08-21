@@ -38,8 +38,10 @@ class FlipCardGameView: UIView {
     // MARK: IBActions
     @IBAction func touchOnResetButton(_ sender: UIButton) {
         if isStarting {
+            sender.setTitle("START", for: .normal)
             delegate?.flipCardGameViewDidReset(self)
         } else {
+            sender.setTitle("STOP", for: .normal)
             delegate?.flipCardGameViewDidStart(self)
         }
         isStarting.toggle()
@@ -113,7 +115,7 @@ extension FlipCardGameView: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - FlipCardGameView + UICollectionViewDelegate
-extension FlipCardGameView: UICollectionViewDelegate, UITextFieldDelegate {
+extension FlipCardGameView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.flipCardGameView(self, didSelectItemAt: indexPath.row)

@@ -37,7 +37,7 @@ class FlipCardGameViewController: UIViewController {
             print(second)
             if second == 0 {
                 timer.stop()
-                self?.flipCardGame.reset()
+                self?.flipCardGame.start()
                 self?.flipCardGameView?.reloadData()
             }
         }
@@ -54,7 +54,7 @@ extension FlipCardGameViewController: FlipCardGameViewDelegate {
     
     func flipCardGameViewDidReset(_ flipCardGameView: FlipCardGameView) {
         repeatTiemr.stop()
-        flipCardGame.reset()
+        flipCardGame.stop()
         flipCardGameView.reloadData()
     }
     

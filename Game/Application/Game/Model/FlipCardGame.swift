@@ -10,6 +10,7 @@ import Foundation
 
 class FlipCardGame {
     
+    private(set) var isStarting = false
     private(set) var cards: [Card]
     private var selectedIndices: [Int] = []
     
@@ -29,6 +30,7 @@ class FlipCardGame {
 extension FlipCardGame {
     
     func flip(at index: Int) {
+        if !isStarting { return }
         if cards[index].isMatched { return }
         let frontCards = cards.filter({ $0.isFaceUp && !$0.isMatched })
         if frontCards.count == 2 {
@@ -54,16 +56,27 @@ extension FlipCardGame {
     }
     
     func showAllCards() {
+        isStarting = false
         for index in cards.indices {
             cards[index].isFaceUp = true
             cards[index].isMatched = true
         }
     }
     
-    func reset() {
+    func start() {
+        isStarting = true
         for index in cards.indices {
             cards[index].isFaceUp = false
             cards[index].isMatched = false
         }
+    }
+    
+    func stop() {
+        isStarting = true
+        for index in cards.indices {
+            cards[index].isFaceUp = false
+            cards[index].isMatched = false
+        }
+        cards.shuffle()
     }
 }
