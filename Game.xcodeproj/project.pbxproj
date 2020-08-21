@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,15 @@
 		5E26D96624EE4DF700BDBB43 /* NumberReactionGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E26D96424EE4DF700BDBB43 /* NumberReactionGameViewController.xib */; };
 		5E26D96924EE4E0800BDBB43 /* PerfectPathGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E26D96724EE4E0800BDBB43 /* PerfectPathGameViewController.swift */; };
 		5E26D96A24EE4E0800BDBB43 /* PerfectPathGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E26D96824EE4E0800BDBB43 /* PerfectPathGameViewController.xib */; };
+		5E26D96C24EE514C00BDBB43 /* FlipCardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E26D96B24EE514C00BDBB43 /* FlipCardGameView.swift */; };
+		5E26D97024EE52BA00BDBB43 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E26D96E24EE52BA00BDBB43 /* CardCollectionViewCell.swift */; };
+		5E26D97124EE52BA00BDBB43 /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E26D96F24EE52BA00BDBB43 /* CardCollectionViewCell.xib */; };
+		5E26D97424EE53C600BDBB43 /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = 5E26D97324EE53C600BDBB43 /* Reusable */; };
+		5E26D97724EE617C00BDBB43 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E26D97624EE617C00BDBB43 /* Card.swift */; };
+		5E26D97924EE61E200BDBB43 /* FlipCardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E26D97824EE61E200BDBB43 /* FlipCardGame.swift */; };
+		5E410CD924EF583600FBE49E /* FlipCardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E410CD824EF583600FBE49E /* FlipCardGameViewModel.swift */; };
+		5E410CDB24EF587800FBE49E /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E410CDA24EF587800FBE49E /* Box.swift */; };
+		5E410CDD24EF633900FBE49E /* RepeatTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E410CDC24EF633900FBE49E /* RepeatTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +51,14 @@
 		5E26D96424EE4DF700BDBB43 /* NumberReactionGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumberReactionGameViewController.xib; sourceTree = "<group>"; };
 		5E26D96724EE4E0800BDBB43 /* PerfectPathGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfectPathGameViewController.swift; sourceTree = "<group>"; };
 		5E26D96824EE4E0800BDBB43 /* PerfectPathGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PerfectPathGameViewController.xib; sourceTree = "<group>"; };
+		5E26D96B24EE514C00BDBB43 /* FlipCardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipCardGameView.swift; sourceTree = "<group>"; };
+		5E26D96E24EE52BA00BDBB43 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		5E26D96F24EE52BA00BDBB43 /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
+		5E26D97624EE617C00BDBB43 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		5E26D97824EE61E200BDBB43 /* FlipCardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipCardGame.swift; sourceTree = "<group>"; };
+		5E410CD824EF583600FBE49E /* FlipCardGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipCardGameViewModel.swift; sourceTree = "<group>"; };
+		5E410CDA24EF587800FBE49E /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		5E410CDC24EF633900FBE49E /* RepeatTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E26D97424EE53C600BDBB43 /* Reusable in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				5E26D95D24EE4D2A00BDBB43 /* GameCoordinator.swift */,
+				5E26D97524EE617000BDBB43 /* Model */,
 				5E26D95624EE489100BDBB43 /* View */,
+				5E410CD724EF582300FBE49E /* ViewModel */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -121,11 +141,13 @@
 		5E26D95624EE489100BDBB43 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5E26D96D24EE529F00BDBB43 /* Cell */,
 				5E26D95224EE479400BDBB43 /* GameListViewController.swift */,
 				5E26D95324EE479400BDBB43 /* GameListViewController.xib */,
 				5E26D95724EE48B600BDBB43 /* GameListView.swift */,
 				5E26D95F24EE4DDE00BDBB43 /* FlipCardGameViewController.swift */,
 				5E26D96024EE4DDE00BDBB43 /* FlipCardGameViewController.xib */,
+				5E26D96B24EE514C00BDBB43 /* FlipCardGameView.swift */,
 				5E26D96324EE4DF700BDBB43 /* NumberReactionGameViewController.swift */,
 				5E26D96424EE4DF700BDBB43 /* NumberReactionGameViewController.xib */,
 				5E26D96724EE4E0800BDBB43 /* PerfectPathGameViewController.swift */,
@@ -138,8 +160,36 @@
 			isa = PBXGroup;
 			children = (
 				5E26D95B24EE4CCB00BDBB43 /* Coordinator.swift */,
+				5E410CDA24EF587800FBE49E /* Box.swift */,
+				5E410CDC24EF633900FBE49E /* RepeatTimer.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		5E26D96D24EE529F00BDBB43 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5E26D96E24EE52BA00BDBB43 /* CardCollectionViewCell.swift */,
+				5E26D96F24EE52BA00BDBB43 /* CardCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		5E26D97524EE617000BDBB43 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5E26D97624EE617C00BDBB43 /* Card.swift */,
+				5E26D97824EE61E200BDBB43 /* FlipCardGame.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5E410CD724EF582300FBE49E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5E410CD824EF583600FBE49E /* FlipCardGameViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +208,9 @@
 			dependencies = (
 			);
 			name = Game;
+			packageProductDependencies = (
+				5E26D97324EE53C600BDBB43 /* Reusable */,
+			);
 			productName = Game;
 			productReference = 5E26D93724EE471900BDBB43 /* Game.app */;
 			productType = "com.apple.product-type.application";
@@ -186,6 +239,9 @@
 				Base,
 			);
 			mainGroup = 5E26D92E24EE471900BDBB43;
+			packageReferences = (
+				5E26D97224EE53C600BDBB43 /* XCRemoteSwiftPackageReference "Reusable" */,
+			);
 			productRefGroup = 5E26D93824EE471900BDBB43 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -205,6 +261,7 @@
 				5E26D94724EE471A00BDBB43 /* LaunchScreen.storyboard in Resources */,
 				5E26D96A24EE4E0800BDBB43 /* PerfectPathGameViewController.xib in Resources */,
 				5E26D94424EE471A00BDBB43 /* Assets.xcassets in Resources */,
+				5E26D97124EE52BA00BDBB43 /* CardCollectionViewCell.xib in Resources */,
 				5E26D96624EE4DF700BDBB43 /* NumberReactionGameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,12 +276,19 @@
 				5E26D96524EE4DF700BDBB43 /* NumberReactionGameViewController.swift in Sources */,
 				5E26D95E24EE4D2A00BDBB43 /* GameCoordinator.swift in Sources */,
 				5E26D93B24EE471900BDBB43 /* AppDelegate.swift in Sources */,
+				5E26D97024EE52BA00BDBB43 /* CardCollectionViewCell.swift in Sources */,
+				5E26D96C24EE514C00BDBB43 /* FlipCardGameView.swift in Sources */,
 				5E26D96924EE4E0800BDBB43 /* PerfectPathGameViewController.swift in Sources */,
 				5E26D95424EE479400BDBB43 /* GameListViewController.swift in Sources */,
+				5E26D97724EE617C00BDBB43 /* Card.swift in Sources */,
 				5E26D95C24EE4CCB00BDBB43 /* Coordinator.swift in Sources */,
+				5E410CDB24EF587800FBE49E /* Box.swift in Sources */,
 				5E26D95824EE48B600BDBB43 /* GameListView.swift in Sources */,
 				5E26D96124EE4DDE00BDBB43 /* FlipCardGameViewController.swift in Sources */,
 				5E26D93D24EE471900BDBB43 /* SceneDelegate.swift in Sources */,
+				5E26D97924EE61E200BDBB43 /* FlipCardGame.swift in Sources */,
+				5E410CDD24EF633900FBE49E /* RepeatTimer.swift in Sources */,
+				5E410CD924EF583600FBE49E /* FlipCardGameViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +478,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5E26D97224EE53C600BDBB43 /* XCRemoteSwiftPackageReference "Reusable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/Reusable";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5E26D97324EE53C600BDBB43 /* Reusable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E26D97224EE53C600BDBB43 /* XCRemoteSwiftPackageReference "Reusable" */;
+			productName = Reusable;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5E26D92F24EE471900BDBB43 /* Project object */;
 }
