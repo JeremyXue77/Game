@@ -31,6 +31,9 @@
 		5E410CD924EF583600FBE49E /* FlipCardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E410CD824EF583600FBE49E /* FlipCardGameViewModel.swift */; };
 		5E410CDB24EF587800FBE49E /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E410CDA24EF587800FBE49E /* Box.swift */; };
 		5E410CDD24EF633900FBE49E /* RepeatTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E410CDC24EF633900FBE49E /* RepeatTimer.swift */; };
+		5E927F5424F345170044F24B /* NumberReactionGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E927F5324F345170044F24B /* NumberReactionGame.swift */; };
+		5E927F5624F3471E0044F24B /* NumberReactionGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E927F5524F3471E0044F24B /* NumberReactionGameViewModel.swift */; };
+		5EEAFE7424F0A49C00210658 /* NumberReactionGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEAFE7324F0A49C00210658 /* NumberReactionGameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +62,9 @@
 		5E410CD824EF583600FBE49E /* FlipCardGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipCardGameViewModel.swift; sourceTree = "<group>"; };
 		5E410CDA24EF587800FBE49E /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		5E410CDC24EF633900FBE49E /* RepeatTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatTimer.swift; sourceTree = "<group>"; };
+		5E927F5324F345170044F24B /* NumberReactionGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberReactionGame.swift; sourceTree = "<group>"; };
+		5E927F5524F3471E0044F24B /* NumberReactionGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberReactionGameViewModel.swift; sourceTree = "<group>"; };
+		5EEAFE7324F0A49C00210658 /* NumberReactionGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberReactionGameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +156,7 @@
 				5E26D96B24EE514C00BDBB43 /* FlipCardGameView.swift */,
 				5E26D96324EE4DF700BDBB43 /* NumberReactionGameViewController.swift */,
 				5E26D96424EE4DF700BDBB43 /* NumberReactionGameViewController.xib */,
+				5EEAFE7324F0A49C00210658 /* NumberReactionGameView.swift */,
 				5E26D96724EE4E0800BDBB43 /* PerfectPathGameViewController.swift */,
 				5E26D96824EE4E0800BDBB43 /* PerfectPathGameViewController.xib */,
 			);
@@ -180,6 +187,7 @@
 			children = (
 				5E26D97624EE617C00BDBB43 /* Card.swift */,
 				5E26D97824EE61E200BDBB43 /* FlipCardGame.swift */,
+				5E927F5324F345170044F24B /* NumberReactionGame.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -188,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				5E410CD824EF583600FBE49E /* FlipCardGameViewModel.swift */,
+				5E927F5524F3471E0044F24B /* NumberReactionGameViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -284,7 +293,10 @@
 				5E26D95C24EE4CCB00BDBB43 /* Coordinator.swift in Sources */,
 				5E410CDB24EF587800FBE49E /* Box.swift in Sources */,
 				5E26D95824EE48B600BDBB43 /* GameListView.swift in Sources */,
+				5E927F5424F345170044F24B /* NumberReactionGame.swift in Sources */,
 				5E26D96124EE4DDE00BDBB43 /* FlipCardGameViewController.swift in Sources */,
+				5EEAFE7424F0A49C00210658 /* NumberReactionGameView.swift in Sources */,
+				5E927F5624F3471E0044F24B /* NumberReactionGameViewModel.swift in Sources */,
 				5E26D93D24EE471900BDBB43 /* SceneDelegate.swift in Sources */,
 				5E26D97924EE61E200BDBB43 /* FlipCardGame.swift in Sources */,
 				5E410CDD24EF633900FBE49E /* RepeatTimer.swift in Sources */,

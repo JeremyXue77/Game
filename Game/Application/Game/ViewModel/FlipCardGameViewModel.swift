@@ -16,7 +16,7 @@ class FlipCardGameViewModel {
             cards.value = game.cards
         }
     }
-    private var repeatTiemr: RepeatTimer = .init()
+    private let repeatTiemr: RepeatTimer = .init()
     
     // MARK: Initializers
     init(game: FlipCardGame) {
