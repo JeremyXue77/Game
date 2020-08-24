@@ -10,13 +10,12 @@ import Foundation
 
 struct FlipCardGame {
     
-    private(set) var cards: [Card]
-    var handCardIndices: [Int] = []
+    // MARK: Properties
+    var cards: [Card]
+    var selectedIndices: Set<Int> = []
+    var isPlaying: Bool = false
     
-    var isPlaying: Bool {
-        (cards.map { $0.isMatched }.contains(false))
-    }
-    
+    // MARK: Initializers
     init() {
         let emojis = ["🎮", "🤖", "👨🏻‍💻", "⚠️", "🎉", "😎"]
         var cards = [Card]()
@@ -33,52 +32,45 @@ struct FlipCardGame {
 extension FlipCardGame {
     
     mutating func flip(at index: Int) {
-        guard isPlaying && !cards[index].isMatched && handCardIndices.count < 2 else {
+        guard isPlaying && !cards[index].isMatched && selectedIndices.count < 2 else {
             return
         }
         cards[index].isFaceUp.toggle()
         if cards[index].isFaceUp {
-            handCardIndices.append(index)
+            selectedIndices.insert(index)
         } else {
-            handCardIndices.removeAll()
+            selectedIndices.remove(index)
         }
     }
     
-    func checkHandCardIsMatched() -> Bool {
+    func checkCardsIsMatched() -> Bool {
         var selecetedCards: [Card] = []
-        for index in handCardIndices {
+        for index in selectedIndices {
             let card = cards[index]
             selecetedCards.append(card)
         }
         return (selecetedCards.first == selecetedCards.last)
     }
     
-    mutating func setHandCards(indices: [Int], isMatched: Bool) {
-        for index in indices {
+    mutating func changeCardsIsMatched(isMatched: Bool) {
+        for index in selectedIndices {
             cards[index].isFaceUp = isMatched
             cards[index].isMatched = isMatched
         }
-    }
-    
-    mutating func showAllCards() {
-        for index in cards.indices {
-            cards[index].isFaceUp = true
-            cards[index].isMatched = true
-        }
+        selectedIndices.removeAll()
     }
     
     mutating func start() {
         for index in cards.indices {
-            cards[index].isFaceUp = false
+            cards[index].isFaceUp = true
             cards[index].isMatched = false
         }
+        cards.shuffle()
     }
     
-    mutating func stop() {
+    mutating func flipAllCards(_ isFaceUp: Bool) {
         for index in cards.indices {
-            cards[index].isFaceUp = false
-            cards[index].isMatched = true
+            cards[index].isFaceUp = isFaceUp
         }
-        cards.shuffle()
     }
 }

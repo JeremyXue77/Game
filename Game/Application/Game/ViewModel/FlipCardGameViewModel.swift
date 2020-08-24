@@ -34,36 +34,26 @@ extension FlipCardGameViewModel {
     
     func flipCard(at index: Int) {
         game.flip(at: index)
-        gameMatchHandle()
+        checkFlipedCardMatch()
     }
     
-    private func gameMatchHandle() {
-        if game.handCardIndices.count != 2 { return }
-        let isMatched = game.checkHandCardIsMatched()
-        let cached = game.handCardIndices
-        game.handCardIndices.removeAll()
+    private func checkFlipedCardMatch() {
+        guard game.selectedIndices.count == 2 else {
+            return
+        }
+        let isMatched = game.checkCardsIsMatched()
         if isMatched {
-            game.setHandCards(indices: cached, isMatched: true)
+            game.changeCardsIsMatched(isMatched: true)
         } else {
-            var deley = 1
-            Timer.scheduledTimer(withTimeInterval: 1,
-                                 repeats: true,
-                                 block: {
-                                    [weak self](timer) in
-                                    guard let self = self else { return }
-                                    if deley == 0 {
-                                        timer.invalidate()
-                                        self.game.setHandCards(indices: cached, isMatched: false)
-                                    }
-                                    deley -= 1
-                                    
-            }).fire()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+                self?.game.changeCardsIsMatched(isMatched: false)
+            }
         }
     }
     
     func startGame() {
         var second = 5
-        game.showAllCards()
+        game.start()
         repeatTiemr.start(timeInterval: 1) { [weak self](timer) in
             guard let self = self else { return }
             self.remainingSeconds.value = "\(second)s"
@@ -72,12 +62,14 @@ extension FlipCardGameViewModel {
             } else {
                 timer.stop()
                 self.remainingSeconds.value = ""
-                self.game.start()
+                self.game.flipAllCards(false)
+                self.game.isPlaying = true
             }
         }
     }
     
     func stopGame() {
-        game.stop()
+        game.isPlaying = false
+        game.flipAllCards(false)
     }
 }
