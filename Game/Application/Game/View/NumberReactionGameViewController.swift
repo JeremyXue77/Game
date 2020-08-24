@@ -48,7 +48,7 @@ class NumberReactionGameViewController: UIViewController {
 // MARK: - NumberReactionGameViewDelegate
 extension NumberReactionGameViewController: NumberReactionGameViewDelegate {
     
-    func numberReactionGameViewDidTapStart(_ view: NumberReactionGameView) {
+    func numberReactionGameViewDidStart(_ view: NumberReactionGameView) {
         viewModel?.startGame()
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol NumberReactionGameViewDelegate: AnyObject {
-    func numberReactionGameViewDidTapStart(_ view: NumberReactionGameView)
+    func numberReactionGameViewDidStart(_ view: NumberReactionGameView)
     func numberReactionGameView(_ view: NumberReactionGameView, button: UIButton, didSelectNumber number: Int)
 }
 
@@ -27,7 +27,7 @@ class NumberReactionGameView: UIView {
     
     // MARK: IBActions
     @IBAction func touchOnStartButton(_ sender: UIButton) {
-        delegate?.numberReactionGameViewDidTapStart(self)
+        delegate?.numberReactionGameViewDidStart(self)
     }
     
     @objc private func touchOnNumberButton(_ sender: UIButton) {
@@ -76,14 +76,14 @@ class NumberReactionGameView: UIView {
         var frameCacheds: [CGRect] = []
         for (index, button) in numberButtons.enumerated() {
             repeat {
-                let length = CGFloat.random(in: 50...200)
+                let length = CGFloat.random(in: 75...150)
                 let size = CGSize(width: length, height: length)
                 let offset = length / 2
                 let x = CGFloat.random(in: offset...numberContentView.bounds.width - offset)
                 let y = CGFloat.random(in: offset...numberContentView.bounds.height - offset)
                 let title = "\(numbers[index])"
-                button.backgroundColor = .orange
-                button.titleLabel?.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+                button.backgroundColor = UIColor.random()
+                button.titleLabel?.font = UIFont.systemFont(ofSize: 30, weight: .light)
                 button.setTitle(title, for: .normal)
                 button.frame.size = size
                 button.center = CGPoint(x: x, y: y)
@@ -93,6 +93,15 @@ class NumberReactionGameView: UIView {
             numberContentView.addSubview(button)
             frameCacheds.append(button.frame)
         }
+        numberButtons.forEach { (button) in
+            button.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        }
+        let animator = UIViewPropertyAnimator(duration: 1, dampingRatio: 0.3) { [weak self] in
+            self?.numberButtons.forEach { (button) in
+                button.transform = .identity
+            }
+        }
+        animator.startAnimation()
     }
     
     private func checkIsValidFrame(frame: CGRect, cacheds: [CGRect]) -> Bool {
